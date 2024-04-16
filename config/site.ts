@@ -9,12 +9,12 @@ export const siteConfig = {
         href: "/",
       },
       {
-        label: "Шифр Виженера",
-        href: "/vigenere",
+        label: "Шифр Цезаря",
+        href: "/caesar",
       },
       {
-        label: "Шифр Тритемиуса",
-        href: "/tritemius",
+        label: "Шифр Виженера",
+        href: "/vigenere",
       },
     ],
 }

@@ -1,12 +1,12 @@
 import CipherComponent from '@/components/CipherComponent/CipherComponent';
 import React from 'react';
 
-const Vigenere = () => {
+const Caesar = () => {
   return (
     <div>
-      <CipherComponent chiferType={"vigenere"} chiferName={"Шифр Виженера"}/>
+      <CipherComponent chiferType={"ceaser"} chiferName={"Шифр Цезаря"}/>
     </div>
   );
 };
 
-export default Vigenere;
+export default Caesar;
