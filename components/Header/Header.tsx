@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { siteConfig } from "@/config/site";
 import Link from "next/link";
-import styles from "./Header.module.css"
+import styles from "./Header.module.css";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -111,9 +111,12 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {siteConfig.navItems.map((page) => (
-              <Link key={page.label} href={page.href} className={styles.linkMenu}>
+              <Link
+                key={page.label}
+                href={page.href}
+                className={styles.linkMenu}
+              >
                 <Button
-                  
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >

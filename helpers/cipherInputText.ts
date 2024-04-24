@@ -10,6 +10,8 @@ export default function getCipherInputText(str: string, key: string, mode: strin
     .replace(/[^А-Яа-яa-zA-Z]/g, "")
     .toLowerCase()
     .replace("ё", "е");
+
+  // if (!cleanedStr) return "Введите хотя бы одну букву!"
   let cleanedKey: string | number;
   if (chiferType === "vigenere") {
     cleanedKey = key

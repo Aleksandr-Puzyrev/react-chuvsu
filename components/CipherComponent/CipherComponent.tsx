@@ -2,7 +2,6 @@
 import { Button, TextField } from "@mui/material";
 import styles from "./CipherComponent.module.css";
 import React, { useState } from "react";
-import languageCheck from "@/helpers/languageCheck";
 import getCipherInputText from "@/helpers/cipherInputText";
 
 interface CipherTypeProps {
@@ -22,7 +21,7 @@ const CipherComponent = ({
   // Функция для кодирования и декодирования текста по методу Виженера и Цезаря
   const encodeVigenere = (prop: string): void => {
     const encodedText: string = getCipherInputText(text,keyText,prop,chiferType);
-    setOutputText(encodedText.match(/.{1,5}/g)?.join(" ") + "\n" || "");
+    (!encodedText) ? setOutputText("Введите хотя бы одну букву") :setOutputText(encodedText.match(/.{1,5}/g)?.join(" ") + "\n" || "");
   };
 
   // Функция для очистки введенного текста, ключа и вывода
