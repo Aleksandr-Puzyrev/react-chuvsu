@@ -16,7 +16,7 @@ export default function getCipherInputText(str: string, key: string, mode: strin
   if (chiferType === "vigenere") {
     cleanedKey = key
       .repeat(Math.ceil(cleanedStr.length / key.length))
-      .slice(0, cleanedStr.length);
+      .slice(0, cleanedStr.length).toLowerCase();
   } else {
     cleanedKey = key;
   }
