@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-    name: "Информационная безопасность",
+    name: "Инф. безопасность",
     description: "Информационная безопасность. Шифры.",
     navItems: [
       {
@@ -15,6 +15,14 @@ export const siteConfig = {
       {
         label: "Шифр Виженера",
         href: "/vigenere",
+      },
+      {
+        label: "Шифр Тритемиуса",
+        href: "/tritemius",
+      },
+      {
+        label: "Шифр гаммирования",
+        href: "/gamma",
       },
     ],
 }

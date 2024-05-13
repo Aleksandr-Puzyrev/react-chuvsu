@@ -1,8 +1,9 @@
 "use client";
-import { Button, TextField } from "@mui/material";
+import { Button, MenuItem, Select, TextField } from "@mui/material";
 import styles from "./CipherComponent.module.css";
 import React, { useState } from "react";
 import getCipherInputText from "@/helpers/cipherInputText";
+
 
 interface CipherTypeProps {
   chiferType: string;
@@ -20,8 +21,9 @@ const CipherComponent = ({
 
   // Функция для кодирования и декодирования текста по методу Виженера и Цезаря
   const encodeVigenere = (prop: string): void => {
+
     const encodedText: string = getCipherInputText(text,keyText,prop,chiferType);
-    (!encodedText) ? setOutputText("Введите хотя бы одну букву") :setOutputText(encodedText.match(/.{1,5}/g)?.join(" ") + "\n" || "");
+    (!encodedText) ? setOutputText("Введите хотя бы одну букву") : setOutputText(encodedText.match(/.{1,5}/g)?.join(" ") + "\n" || "");
   };
 
   // Функция для очистки введенного текста, ключа и вывода
@@ -54,7 +56,7 @@ const CipherComponent = ({
           onChange={(e) => setKeyText(e.target.value)}
         />
       )}
-      {chiferType === "vigenere" && (
+      {(chiferType === "vigenere" || chiferType === "tritemius") && (
         <TextField
           id="outlined-basic"
           label="Ключ"
@@ -63,6 +65,12 @@ const CipherComponent = ({
           value={keyText}
           onChange={(e) => setKeyText(e.target.value)}
         />
+      )}
+      {chiferType === "gamma" && (
+        <Select labelId="demo-simple-select-label" id="demo-simple-select" value={keyText} onChange={(e) => setKeyText(e.target.value)}>
+          <MenuItem value={"2"}>e</MenuItem>
+          <MenuItem value={"3"}>П</MenuItem>
+        </Select>
       )}
       <Button variant="contained" onClick={() => encodeVigenere("encode")}>
         Зашифровать

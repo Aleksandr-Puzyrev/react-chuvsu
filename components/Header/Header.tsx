@@ -49,7 +49,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ
+            ИБ
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>

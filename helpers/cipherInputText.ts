@@ -17,6 +17,8 @@ export default function getCipherInputText(str: string, key: string, mode: strin
     cleanedKey = key
       .repeat(Math.ceil(cleanedStr.length / key.length))
       .slice(0, cleanedStr.length).toLowerCase();
+  } else if (chiferType === "tritemius") {
+    cleanedKey = key.toLowerCase().split("").reduce((acc, val) => acc + (languageCheck(cleanedStr) ? alpRus.indexOf(val) : alpEnglish.indexOf(val)), 0)
   } else {
     cleanedKey = key;
   }
@@ -26,9 +28,9 @@ export default function getCipherInputText(str: string, key: string, mode: strin
     const alp = languageCheck(cleanedStr[i]) ? alpRus : alpEnglish; 
     const strIndex = alp.indexOf(cleanedStr[i]);
     const keyIndex =
-      chiferType === "vigenere" ? alp.indexOf(cleanedKey[i]) : +cleanedKey;
+      chiferType === "vigenere" && typeof cleanedKey === 'string' ? alp.indexOf(cleanedKey[i]) : +cleanedKey;
     let newIndex;
-    mode === "encode" ? (newIndex = (strIndex + keyIndex) % isLanguageLen) : (newIndex = (strIndex - keyIndex + isLanguageLen) % isLanguageLen);
+    mode === "encode" ? (newIndex = (strIndex + keyIndex) % isLanguageLen) : (newIndex = (strIndex - (keyIndex % isLanguageLen) + isLanguageLen) % isLanguageLen);
     result += alp[newIndex];
   }
   return result;
