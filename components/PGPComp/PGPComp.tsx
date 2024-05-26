@@ -38,7 +38,8 @@ const PGPComp = () => {
         message: await openpgp.createMessage({ text: message }),
         signingKeys: decryptedPrivateKey,
       });
-      setSignedMessage(signed);
+      const signedText = signed as unknown as string;
+      setSignedMessage(signedText);
     };
   
     const encryptMessage = async (message: string) => {
@@ -47,7 +48,8 @@ const PGPComp = () => {
         message: await openpgp.createMessage({ text: message }),
         encryptionKeys: publicKeyObj,
       });
-      setEncryptedMessage(encrypted);
+      const encryptedText = encrypted as unknown as string;
+      setEncryptedMessage(encryptedText);
     };
   
     const decryptMessage = async (message: string) => {
@@ -61,7 +63,8 @@ const PGPComp = () => {
         message: messageObj,
         decryptionKeys: decryptedPrivateKey,
       });
-      setDecryptedMessage(decrypted);
+      const decryptedText = decrypted as unknown as string;
+      setDecryptedMessage(decryptedText);
     };
   
     const verifySignature = async (message: string) => {
