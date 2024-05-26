@@ -24,5 +24,9 @@ export const siteConfig = {
         label: "Шифр гаммирования",
         href: "/gamma",
       },
+      {
+        label: "PGP",
+        href: "/pgp",
+      },
     ],
 }
